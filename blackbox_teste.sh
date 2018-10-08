@@ -15,7 +15,6 @@ sudo chown -R blackbox_exporter:blackbox_exporter /etc/blackbox_exporter
 sudo touch /etc/blackbox_exporter/blackbox.yml
 
 #Inserir em /etc/blackbox_exporter/blackbox.yml
-
 echo "modules:
   http_2xx:
     prober: http
@@ -29,27 +28,23 @@ sudo chown blackbox_exporter:blackbox_exporter /etc/blackbox_exporter/blackbox.y
 ############################################
 #Criar o serviço blackbox_exporter.service #
 
-sudo echo "
-[Unit]
+echo '[Unit]
 Description=Blackbox Exporter
 Wants=network-online.target
 After=network-online.target
-
 [Service]
 User=blackbox_exporter
 Group=blackbox_exporter
 Type=simple
 ExecStart=/usr/local/bin/blackbox_exporter --config.file /etc/blackbox_exporter/blackbox.yml
-
 [Install]
-WantedBy=multi-user.target " >> vi /etc/systemd/system/blackbox_exporter.service
+WantedBy=multi-user.target' > /etc/systemd/system/blackbox_exporter.service
 
 
 systemctl daemon-reload
 systemctl start blackbox_exporter
 systemctl enable blackbox_exporter
 systemctl status blackbox_exporter
-
 
 ###################################################
 ## INSERIR NO PROMETHEUS-SERVER (prometheus.yml) ##
@@ -70,9 +65,6 @@ systemctl status blackbox_exporter
         target_label: instance
       - target_label: __address__
         replacement: localhost:9115"
-
-
-
 
 
 ###################FIM###################
