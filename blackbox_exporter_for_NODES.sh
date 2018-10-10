@@ -15,7 +15,7 @@ sudo chown -R blackbox_exporter:blackbox_exporter /etc/blackbox_exporter
 sudo touch /etc/blackbox_exporter/blackbox.yml
 
 #Inserir em /etc/blackbox_exporter/blackbox.yml
-echo "modules:
+echo 'modules:
   http_2xx:
     prober: http
     timeout: 5s
@@ -147,7 +147,7 @@ echo "modules:
     dns:
       transport_protocol: "tcp" # defaults to "udp"
       preferred_ip_protocol: "ip4" #  defaults to "ip6"
-      query_name: "www.avaeduc.com.br" >> /etc/blackbox_exporter/blackbox.yml
+      query_name: "www.avaeduc.com.br"' >> /etc/blackbox_exporter/blackbox.yml
 
 sudo chown blackbox_exporter:blackbox_exporter /etc/blackbox_exporter/blackbox.yml
 
