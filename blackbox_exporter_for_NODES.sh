@@ -1,4 +1,3 @@
-
 #!/bin/bash
 # create user
 useradd --no-create-home --shell /bin/false blackbox_exporter
@@ -66,6 +65,4 @@ systemctl status blackbox_exporter
         target_label: instance
       - target_label: __address__
         replacement: localhost:9115"
-
-
 ###################FIM###################
